@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pop_upanimation_025/homepage/widgets/bar.dart';
 import 'package:pop_upanimation_025/homepage/widgets/button.dart';
 import 'package:pop_upanimation_025/homepage/widgets/container.dart';
+import 'package:pop_upanimation_025/homepage/widgets/scoreContainer.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -18,15 +19,19 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Color.fromARGB(100, 100, 100, 100),
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 70),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 30),
             child: Column(
               children: [
-                Stack(
+                ScoreContainer(),
+            const    SizedBox(
+                  height: 20,
+                ),
+              const   Stack(
                   alignment: Alignment.center,
                   children: [
                     MyContainer(),
@@ -34,7 +39,7 @@ class _HomescreenState extends State<Homescreen> {
                   ],
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 MyButton(),
               ],

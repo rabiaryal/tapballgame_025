@@ -4,11 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 class MyButton extends StatefulWidget {
  
  
-  const MyButton({super.key, required this.onTap, required this.label});
+  const MyButton({super.key,
+  //  required this.onTap,
+  //   required this.label
+    
+    });
 
 
- final VoidCallback onTap;
-  final String label;
+//  final VoidCallback onTap;
+//   final String label;
 
   @override
   State<MyButton> createState() => _MyButtonState();
