@@ -6,64 +6,57 @@ abstract class EventsForBLoc extends Equatable {
   List<Object> get probs => [];
 }
 
+class ButtonPressed extends EventsForBLoc {
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+}
+
 class Initialize extends EventsForBLoc {
   @override
   // TODO: implement props
   List<Object?> get props => [];
 }
 
-class NextBallLocation extends EventsForBLoc {
+class PassMessage extends EventsForBLoc {
   @override
-  
+  // TODO: implement props
   List<Object?> get props => [];
 }
 
-class PressButton extends EventsForBLoc {
-  const PressButton({
-    required this.onPress,
+class NextLocation extends EventsForBLoc {
+  NextLocation({
+    required this.position,
   });
-  final VoidCallback onPress;
-
+  final Offset position;
   @override
-  // TODO: implement props
-  List<Object?> get props => [onPress];
+  List<Object?> get props => [];
 }
 
-// here upper body denotes the top + left + right side or expect buttom side
-
-class BallTouchedUpper extends EventsForBLoc {
-  const BallTouchedUpper({
-    required this.x,
-    required this.y,
+class CollisionWithContainer extends EventsForBLoc {
+   CollisionWithContainer({
+    required this.position,
   });
- final  int x;
-  final int y;
-
+  final Offset position;
   @override
   // TODO: implement props
-  List<Object?> get props => [x,y];
+  List<Object?> get props => [position];
 }
 
-class BallTouchedBar extends EventsForBLoc {
-  const BallTouchedBar({
-    required this.onTouch,
+class CollisionWithBar extends EventsForBLoc {
+  CollisionWithBar({
+    required this.position,
   });
-  final VoidCallback onTouch;
-
+  final Offset position;
   @override
   // TODO: implement props
-  List<Object?> get props => [onTouch];
+  List<Object?> get props => [position];
 }
 
-class BallTouchedLower extends EventsForBLoc {
-  const BallTouchedLower({
-    required this.onTouch,
-  });
-  final VoidCallback onTouch;
-
+class GameOver extends EventsForBLoc {
   @override
   // TODO: implement props
-  List<Object?> get props => [onTouch];
+  List<Object?> get props => [];
 }
 
 class UpdateScore extends EventsForBLoc {

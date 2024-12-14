@@ -2,17 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyButton extends StatefulWidget {
- 
- 
-  const MyButton({super.key,
-  //  required this.onTap,
-  //   required this.label
-    
-    });
+  const MyButton({super.key, required this.onPressed,});
 
-
-//  final VoidCallback onTap;
-//   final String label;
+  final VoidCallback onPressed;
 
   @override
   State<MyButton> createState() => _MyButtonState();
@@ -33,26 +25,22 @@ class _MyButtonState extends State<MyButton> {
 
     return GestureDetector(
       onTapDown: (details) {
-       
         setState(() {
           if (circleSize < height) {
-            circleSize = height; 
+            circleSize = height;
           }
-          
-            circleWidth = MediaQuery.of(context).size.width;
-          if (circleWidth < MediaQuery.of(context).size.width) {
-          }
+
+          circleWidth = MediaQuery.of(context).size.width;
+          if (circleWidth < MediaQuery.of(context).size.width) {}
         });
       },
       onTapUp: (details) {
-        
         setState(() {
           circleSize = 70;
           circleWidth = 70;
         });
       },
       onTapCancel: () {
-      
         setState(() {
           circleSize = 70;
           circleWidth = 70;

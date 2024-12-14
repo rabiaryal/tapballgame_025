@@ -1,32 +1,23 @@
 part of 'blocfor_bloc.dart';
 
 class StateForBLoc extends Equatable {
-  StateForBLoc({
-    
-    required this.initialScore,
-    required this.x_Cood,
-    required this.y_Cood
-  });
+  StateForBLoc(
+      {required this.initialScore,  required this.position});
   final int initialScore;
-  final int x_Cood;
-  final int y_Cood;
- 
+  Offset position;
+
   StateForBLoc copyWith({
-     int? initialScore,
-   int? x_Cood,
-   int? y_Cood,
+    int? initialScore,
+    Offset? position,
   }) {
     return StateForBLoc(
-      initialScore: initialScore?? this.initialScore,
-      x_Cood:  x_Cood?? this.x_Cood,
-      y_Cood: y_Cood?? this.y_Cood,
-      
-   
+      initialScore: initialScore ?? this.initialScore,
+      position: position ?? this.position
+    
     );
   }
 
   @override
   // TODO: implement props
-  List<Object?> get props =>
-      [initialScore, x_Cood,y_Cood];
+  List<Object?> get props => [initialScore, position];
 }

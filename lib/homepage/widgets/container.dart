@@ -17,14 +17,16 @@ class _MyContainerState extends State<MyContainer>
   double _startX = 0;
   double _startY = 0;
   double _endX = 200; // Horizontal movement
-  double _endY = 0;
+  double _endY = 300; // Vertical movement
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _controllerBall =
-        AnimationController(vsync: this, duration: const Duration(seconds: 3));
+    _controllerBall = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    );
+
     _horizontalAnimation = Tween<double>(
       begin: _startX,
       end: _endX,
@@ -51,33 +53,14 @@ class _MyContainerState extends State<MyContainer>
   @override
   void dispose() {
     _controllerBall.dispose();
-
-    // TODO: implement dispose
     super.dispose();
-  }
-   void changeDirection({double? newX, double? newY}) {
-    setState(() {
-      _startX = _horizontalAnimation.value;
-      _startY = _verticalAnimation.value;
-      _endX = newX ?? _startX;
-      _endY = newY ?? _startY;
-
-      _horizontalAnimation = Tween<double>(
-        begin: _startX,
-        end: _endX,
-      ).animate(_controllerBall);
-
-      _verticalAnimation = Tween<double>(
-        begin: _startY,
-        end: _endY,
-      ).animate(_controllerBall);
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     final double heightOfContainer = 600;
     final double widthOfContainer = double.infinity;
+
     return Container(
       height: heightOfContainer,
       width: widthOfContainer,
@@ -90,14 +73,16 @@ class _MyContainerState extends State<MyContainer>
           AnimatedBuilder(
             animation: _controllerBall,
             builder: (context, child) {
-              return Positioned(
-                left: _horizontalAnimation.value,
-                top: _verticalAnimation.value,
+              return Transform.translate(
+                offset: Offset(
+                  _verticalAnimation.value,
+                  _horizontalAnimation.value,
+                ),
                 child: child!,
               );
             },
             child: const MyBall(),
-          )
+          ),
         ],
       ),
     );
